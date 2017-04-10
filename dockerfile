@@ -48,7 +48,7 @@ ENV sqlbackup c:\\sql\\backup
 
 COPY . /install
 WORKDIR /install 
-powershell /install/Set-SqlExpressStaticTcpPort %sqlinstance% \
+powershell /install/Set-SqlTcpPort %sqlinstance% \
 && powershell /install/Move-dirs-and-stop-service %sqlinstance% %sql% %sqldata% %sqlbackup%
 EXPOSE 1433
 CMD powershell /install/start detached %sqlinstance% %sqldata% %sqlbackup%
